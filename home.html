@@ -12,13 +12,18 @@
 </head>
 
 <body>
-    <div class="container">
+    <nav class="navbar navbar-dark bg-dark">
+        <form class="container-fluid justify-content-start">
+            <button class="btn btn-outline-danger me-2" id="logoutbtn" type="button">Log out</button>
+        </form>
+    </nav>
+    <div class="container" id="cardContainer">
         <div class="card" style="width: 18rem;">
             <img src="commercial.jpeg" class="card-img-top" alt="commercial billing">
             <div class="card-body">
                 <h5 class="card-title">Commercial</h5>
                 <p class="card-text">You can see commercial bills here.</p>
-                <a href="#" class="bottom btn btn-primary">Commercial</a>
+                <a href="#" class="cardbtn bottom btn btn-primary">Commercial</a>
             </div>
         </div>
 
@@ -27,7 +32,7 @@
             <div class="card-body">
                 <h5 class="card-title">Domestic</h5>
                 <p class="card-text">You can see domestic bills here.</p>
-                <a href="#" class="bottom btn btn-primary">Domestic</a>
+                <a href="#" class="cardbtn bottom btn btn-primary">Domestic</a>
             </div>
         </div>
 
@@ -36,7 +41,7 @@
             <div class="card-body">
                 <h5 class="card-title">Your Info</h5>
                 <p class="card-text">You can see your personal data here.</p>
-                <a href="#" class="bottom btn btn-primary">View Info</a>
+                <a href="#" class="cardbtn bottom btn btn-primary">View Info</a>
             </div>
         </div>
 
@@ -46,7 +51,7 @@
                 <h5 class="card-title">Feedback</h5>
                 <p class="card-text">We would love if you help us to improve our quality by giving a precious feedback.
                 </p>
-                <a href="#" class="bottom btn btn-primary">View Info</a>
+                <a href="#" class="cardbtn bottom btn btn-primary">Feedback</a>
             </div>
         </div>
     </div>
@@ -65,15 +70,30 @@
         display: flex;
         width: 100vw;
         height: 100vh;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
     }
 
-    .bottom{
+    .bottom {
         position: absolute;
         bottom: 0.5rem;
         margin: 0rem auto;
     }
+
+    .card{
+        margin: 0.5rem;
+    }
+    @media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+  .container{
+    flex-wrap: wrap;
+
+  }
+}
 </style>
+
+<script src="home.js"></script>
 
 </html>
