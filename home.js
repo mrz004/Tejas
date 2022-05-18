@@ -6,7 +6,7 @@ cust = [
     email: "example@example.com",
     address: "Some address",
     age: 18,
-    connection: "domestic",
+    type: "domestic",
     units: 92,
   },
   {
@@ -16,7 +16,7 @@ cust = [
     email: "bklageman0@xinhuanet.com",
     address: "29 Graceland Drive",
     age: 34,
-    connection: "commercial",
+    type: "commercial",
     units: 25,
   },
   {
@@ -26,7 +26,7 @@ cust = [
     email: "dhyndson1@ox.ac.uk",
     address: "2 Knutson Terrace",
     age: 31,
-    connection: "domestic",
+    type: "domestic",
     units: 110,
   },
   {
@@ -36,7 +36,7 @@ cust = [
     email: "mkibbel2@archive.org",
     address: "1994 Tony Circle",
     age: 98,
-    connection: "commercial",
+    type: "commercial",
     units: 220,
   },
   {
@@ -46,7 +46,7 @@ cust = [
     email: "caslet3@com.com",
     address: "7 American Avenue",
     age: 68,
-    connection: "domestic",
+    type: "domestic",
     units: 244,
   },
   {
@@ -56,7 +56,7 @@ cust = [
     email: "ccasarini4@networksolutions.com",
     address: "3 Lillian Trail",
     age: 33,
-    connection: "commercial",
+    type: "commercial",
     units: 4,
   },
   {
@@ -66,7 +66,7 @@ cust = [
     email: "catack5@comcast.net",
     address: "92 Ohio Drive",
     age: 34,
-    connection: "domestic",
+    type: "domestic",
     units: 14,
   },
   {
@@ -76,7 +76,7 @@ cust = [
     email: "agillmore6@umn.edu",
     address: "0851 Florence Lane",
     age: 19,
-    connection: "commercial",
+    type: "commercial",
     units: 33,
   },
   {
@@ -86,7 +86,7 @@ cust = [
     email: "gwhistlecraft7@netscape.com",
     address: "1 Chinook Avenue",
     age: 33,
-    connection: "domestic",
+    type: "domestic",
     units: 39,
   },
   {
@@ -96,7 +96,7 @@ cust = [
     email: "glaible8@hc360.com",
     address: "81789 Barnett Alley",
     age: 45,
-    connection: "commercial",
+    type: "commercial",
     units: 144,
   },
 ];
@@ -107,21 +107,44 @@ document.getElementById("logoutbtn").addEventListener("click", () => {
 });
 
 function showCard() {
-  Array.from(document.getElementsByClassName("card")).forEach((element) => {
-    element.style.display = "block";
-  });
+  document.getElementById("form").in = "";
+  document.getElementById("cardContainer").style.display = "block";
 }
 
 function hideCard() {
-  Array.from(document.getElementsByClassName("card")).forEach((element) => {
-    element.style.display = "none";
-  });
+  document.getElementById("cardContainer").style.display = "none";
 }
 
 document.getElementById("viewInfo").addEventListener("click", () => {
   hideCard();
   form = document.getElementById("form");
   form.innerHTML = ``
-console.log(form);
-showCard();
+  console.log(form);
+  showCard();
 });
+
+
+document.getElementById("viewInfo").addEventListener("click", () => {
+  hideCard()
+  let id = prompt("Enter the your id : ");
+  cust.forEach((element) => {
+    if (element.id == id) {
+      document.getElementById("form").innerHTML =
+        `<div class="flex flex-col" id="viewInfoForm">
+      <h1>Id : ${element.id}</h1>
+      <h1>name : ${element.name}</h1>
+      <h1>address : ${element.address}</h1>
+      <h1>email : ${element.email}</h1>
+      <h1>phone : ${element.phone}</h1>
+      <h1>age : ${element.age}</h1>
+      <h1>type : ${element.type}</h1>
+      <h1>units : ${element.units}</h1>
+      <button id="back">Back</button>
+      </div>
+      <script>
+        document.getElementById("back").addEventListener("click", "showCard")
+      </script>
+      `;
+    }
+  })
+})
