@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Domestic Customers</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1 class="my-4">Commercial Customers</h1>
+    <div class="container my-5">
+      <table class="table table-dark table-striped">
+        <thead>
+          <th>#</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Address</th>
+        </thead>
+        <tbody id="commTable"></tbody>
+      </table>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    cust = JSON.parse(localStorage.getItem("cust"));
+    let commTable = document.getElementById("commTable");
+    cust.forEach((element, index) => {
+      if (element.type == "domestic") {
+        commTable.innerHTML += `<tr class="table-active">
+                <td>${index + 1}</td>
+                <td>${element.id}</td>
+                <td>${element.name}</td>
+                <td>${element.age}</td>
+                <td>${element.phone}</td>
+                <td>${element.email}</td>
+                <td>${element.address}</td>
+                </tr>`;
+      }
+    });
+  </script>
+</html>

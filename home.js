@@ -1,4 +1,4 @@
-cust = [
+let cust = [
   {
     id: 1001,
     name: "Tejas Chaugle",
@@ -101,50 +101,50 @@ cust = [
   },
 ];
 
+if (localStorage.getItem("cust") == null) {
+  localStorage.setItem("cust", JSON.stringify(cust));
+} else {
+  cust = JSON.parse(localStorage.getItem("cust"));
+  console.log(cust);
+}
+
+document.getElementById("commercial").addEventListener("click", () => {location.href="commercial.html";})
+document.getElementById("domestic").addEventListener("click", () => {location.href="domestic.html";})
+document.getElementById("feedback").addEventListener("click", () => {location.href="feedback.html";})
+
 document.getElementById("logoutbtn").addEventListener("click", () => {
   localStorage.removeItem("pass");
   location.href = "index.html";
 });
 
 function showCard() {
-  document.getElementById("form").in = "";
-  document.getElementById("cardContainer").style.display = "block";
+  document.getElementById("cardContainer").style.display = "flex";
+  document.getElementById("viewInfoForm").style.display = "none";
 }
 
 function hideCard() {
   document.getElementById("cardContainer").style.display = "none";
+  document.getElementById("viewInfoForm").style.display = "block";
 }
+
+document.getElementById("back").addEventListener("click", showCard);
 
 document.getElementById("viewInfo").addEventListener("click", () => {
   hideCard();
-  form = document.getElementById("form");
-  form.innerHTML = ``
-  console.log(form);
-  showCard();
-});
-
-
-document.getElementById("viewInfo").addEventListener("click", () => {
-  hideCard()
   let id = prompt("Enter the your id : ");
   cust.forEach((element) => {
+    // console.log(element, typeof element)
     if (element.id == id) {
-      document.getElementById("form").innerHTML =
-        `<div class="flex flex-col" id="viewInfoForm">
-      <h1>Id : ${element.id}</h1>
-      <h1>name : ${element.name}</h1>
-      <h1>address : ${element.address}</h1>
-      <h1>email : ${element.email}</h1>
-      <h1>phone : ${element.phone}</h1>
-      <h1>age : ${element.age}</h1>
-      <h1>type : ${element.type}</h1>
-      <h1>units : ${element.units}</h1>
-      <button id="back">Back</button>
-      </div>
-      <script>
-        document.getElementById("back").addEventListener("click", "showCard")
-      </script>
-      `;
+      document.getElementById("elemId").value = String(element.id);
+      document.getElementById("elemName").value = String(element.name);
+      document.getElementById("elemAddr").value = String(element.address);
+      document.getElementById("elemEmail").value = String(element.email);
+      document.getElementById("elemNumber").value = String(element.phone);
+      document.getElementById("elemAge").value = String(element.age);
+      document.getElementById("elemType").value = String(element.type);
+      document.getElementById("elemUnits").value = String(element.units);
     }
-  })
-})
+  });
+});
+
+showCard();
