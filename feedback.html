@@ -21,14 +21,14 @@
         <label for="exampleFormControlInput1" class="form-label">Name</label>
         <input
           type="text"
-          class="form-control"
+          class="mWidth form-control"
           id="name"
           placeholder="Your Name"
         />
       </div>
       <div class="mb-3">
         <label for="feedback" class="form-label">Feedback</label>
-        <textarea class="form-control" id="feedback" rows="3"></textarea>
+        <textarea class="mWidth form-control" id="feedback" rows="3"></textarea>
       </div>
       <div class="d-grid gap-2">
         <button id="submit" class="btn btn-primary" type="button">
@@ -38,6 +38,9 @@
     </div>
   </body>
   <style>
+    .mWidth{
+      min-width: 700px;
+    }
     .container {
       padding: 0rem 3rem;
       height: 50vh;
